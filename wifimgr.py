@@ -4,7 +4,7 @@ import ure
 import time
 
 
-ap_ssid = "StuderBattery"
+ap_ssid = "HalloweenBox"
 ap_password = "123456789"
 ap_authmode = 3  # WPA2
 
