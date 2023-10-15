@@ -65,11 +65,11 @@ def handle_pir():
         time.sleep(blinkfreq)
     
 #WLAN Verbindung herstellen
-wlan = wifimgr.get_connection()
+#wlan = wifimgr.get_connection()
 
 #Firmware auf Updates prüfen
-ota_updater = OTAUpdater(firmware_url,"main.py","boot.py")
-ota_updater.download_and_install_update_if_available()
+#ota_updater = OTAUpdater(firmware_url,"main.py","boot.py")
+#ota_updater.download_and_install_update_if_available()
 
 music.volume(volume)
 for i in range(6):
