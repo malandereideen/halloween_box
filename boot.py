@@ -1,3 +1,6 @@
+#Github Update URL
+firmware_url = "https://raw.githubusercontent.com/malandereideen/halloween_box/main/"
+
 volume = 20
 farbe = 4
 blinkfreq = 0.05
