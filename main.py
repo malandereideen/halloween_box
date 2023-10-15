@@ -3,8 +3,9 @@ import time
 from neopixel import NeoPixel
 from dfplayermini import Player
 from random import randint
-
-
+from ota import OTAUpdater
+import network
+import socket
 
 
 taste1 = Pin(27,Pin.IN,Pin.PULL_UP)
@@ -19,7 +20,7 @@ pixels.write()
 
 music = Player(pin_TX=17,pin_RX=16)
 
-
+    
 def handle_taste1():
     global volume
     print("Taste Volume lauter gedrückt")
@@ -50,23 +51,31 @@ def handle_taste3():
     
 
 def handle_pir():
-    global blink
+    global blinkfreq, blinkrepeats, numtitel
     print("Pir hat ausgelöst")
-    rand = randint(1,9)
+    rand = randint(1,numtitel)
     print(rand)
     music.play(rand)
-    for i in range(15):
+    for i in range(blinkrepeats):
         pixels.fill((colr[farbe],colg[farbe],colb[farbe]))
         pixels.write()
-        time.sleep(blink)
+        time.sleep(blinkfreq)
         pixels.fill((0,0,0))
         pixels.write()
-        time.sleep(blink)
+        time.sleep(blinkfreq)
     
+#WLAN Verbindung herstellen
+wlan = wifimgr.get_connection()
 
+#Firmware auf Updates prüfen
+ota_updater = OTAUpdater(firmware_url,"main.py","boot.py")
+ota_updater.download_and_install_update_if_available()
 
 music.volume(volume)
-
+for i in range(6):
+    music.volume_up()
+    time.sleep(0.5)
+    
 while True:
     if taste1.value() == 0:
         time.sleep_ms(50)
