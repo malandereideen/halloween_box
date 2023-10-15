@@ -51,7 +51,7 @@ def handle_taste3():
     
 
 def handle_pir():
-    global blinkfreq, blinkrepeats, numtitel
+    global blinkfreq, blinkrepeats, numtitel, leuchtzeit
     print("Pir hat ausgelöst")
     rand = randint(1,numtitel)
     print(rand)
@@ -63,6 +63,11 @@ def handle_pir():
         pixels.fill((0,0,0))
         pixels.write()
         time.sleep(blinkfreq)
+    pixels.fill((colr[farbe],colg[farbe],colb[farbe]))
+    pixels.write()
+    time.sleep(leuchtzeit)
+    pixels.fill((0,0,0))
+    pixels.write()
     
 #WLAN Verbindung herstellen
 wlan = wifimgr.get_connection()
