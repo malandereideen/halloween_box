@@ -3,8 +3,9 @@ firmware_url = "https://raw.githubusercontent.com/malandereideen/halloween_box/m
 
 volume = 20
 farbe = 4
-blinkfreq = 0.05
-blinkrepeats = 20
+blinkfreq = 0.2
+blinkrepeats = 5
+leuchtzeit = 20
 numtitel = 9
 
 colr = [255,0,0,138,0,255,124,255,255,255]
