@@ -6,7 +6,7 @@ from random import randint
 from ota import OTAUpdater
 import network
 import socket
-
+import wifimgr
 
 taste1 = Pin(27,Pin.IN,Pin.PULL_UP)
 taste2 = Pin(25,Pin.IN,Pin.PULL_UP)
